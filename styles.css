@@ -1028,3 +1028,36 @@ body {
     margin-bottom: 20px;
     margin-top: 60px; /* Добавляем отступ сверху для контактов */
 }
+
+/* Стили для блока "Чем помогло" */
+.case-impact {
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(138, 43, 226, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid #8A2BE2;
+}
+
+.case-impact-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.case-impact-content {
+    color: #555;
+    line-height: 1.5;
+}
+
+    .case-impact-content p {
+        margin: 8px 0;
+        position: relative;
+        padding-left: 15px;
+    }
+

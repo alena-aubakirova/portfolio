@@ -3,6 +3,14 @@ function renderCases() {
     const container = document.getElementById('cases-container');
 
     casesData.forEach(caseData => {
+        // Находим оба типа разделов "Чем помогло" и отделяем их от остальных секций
+        const impactSections = caseData.sections.filter(section =>
+            section.title.includes('Чем помог') || section.title.includes('Чем поможет')
+        );
+        const otherSections = caseData.sections.filter(section =>
+            !section.title.includes('Чем помог') && !section.title.includes('Чем поможет')
+        );
+
         const caseElement = document.createElement('div');
         caseElement.className = 'case';
         caseElement.innerHTML = `
@@ -22,9 +30,26 @@ function renderCases() {
                 </ul>
                 <button class="case-toggle">Подробнее</button>
             </div>
+
+            <!-- НОВЫЙ БЛОК: Все разделы "Чем помогло" - всегда видимые -->
+            ${impactSections.map(impactSection => `
+            <div class="case-impact">
+                <h4 class="case-impact-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A2BE2" stroke-width="3">
+                        <path d="${impactSection.icon}"/>
+                    </svg>
+                    ${impactSection.title}
+                </h4>
+                <div class="case-impact-content">
+                    ${Array.isArray(impactSection.items) ?
+                impactSection.items.map(item => `<p>${item}</p>`).join('') :
+                `<p>${impactSection.items}</p>`}
+                </div>
+            </div>
+            `).join('')}
             
             <div class="case-full">
-                ${caseData.sections.map(section => `
+                ${otherSections.map(section => `
                     <div class="case-section">
                         <h4 class="case-section-title">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E8B57" stroke-width="3">
@@ -51,6 +76,9 @@ function renderCases() {
         container.appendChild(caseElement);
     });
 }
+
+
+
 
 // Обработчики для сворачивания/разворачивания
 document.addEventListener('DOMContentLoaded', function () {
