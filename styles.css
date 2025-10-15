@@ -981,3 +981,50 @@ body {
         list-style: none;
         text-indent: 0;
     }
+}
+
+/* Стили для секции с кнопкой резюме */
+.resume-section {
+    text-align: center; /* Добавляем центрирование */
+    margin: 60px 0 40px 0;
+    padding: 0;
+    width: 100%; /* Занимает всю ширину */
+}
+
+.download-resume {
+    margin: 0;
+    padding: 0;
+    display: flex; /* Используем flex для центрирования */
+    justify-content: center; /* Центрируем по горизонтали */
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: #2E8B57;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid #2E8B57;
+}
+
+    .download-btn:hover {
+        background: white;
+        color: #2E8B57;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(46, 139, 87, 0.2);
+    }
+/*отступ для блока контактов*/
+.contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin-top: 60px; /* Добавляем отступ сверху для контактов */
+}
